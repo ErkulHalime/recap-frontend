@@ -1,1 +1,17 @@
-<p>brand works!</p>
+<table class="table table-hover table-striped border">
+    <thead>
+    <tr>
+       <th class="text-center" >Id</th>
+       <th>Brand Name</th>
+    
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let brand of brands ">
+       <th class="text-center">{{ brand.id }}</th>
+       <td>{{ brand.name }}</td>
+      
+    </tr>
+    </tbody>
+ </table>
+

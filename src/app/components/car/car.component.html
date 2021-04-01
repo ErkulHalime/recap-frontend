@@ -1,18 +1,25 @@
-<table class="table table-striped">
+
+<div *ngIf="dataLoaded==false" class="spinner-border text-primary" role="status">
+    <span class="visually-hidden">Loading...</span>
+</div>
+<table class="table table-striped"  *ngIf="dataLoaded==true">
     <thead>
         <tr>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
+            <th>Id</th>
+            <th>Brand</th>
+            <th>Color</th>
+            <th>ModelYear</th>
+            <th>DailyPrice</th>
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td>1</td>
-            <td>22</td>
-            <td>133</td>
-            <td>144</td>
+        <tr *ngFor="let car of carDetails ">
+            <td class="text-center fw-bold">{{ car.id }}</td>
+               <td>{{ car.brandName }} {{ car.name }}</td>
+               <td>{{ car.colorName }}</td>
+               <td>{{ car.modelYear }}</td>
+               <td>{{ car.dailyPrice | currency: '₺ '}}</td>
+              
         </tr>
     </tbody>
 </table>
