@@ -1,17 +1,63 @@
-<table class="table table-hover table-striped border">
-    <thead>
-    <tr>
-       <th class="text-center" >Id</th>
-       <th>Brand Name</th>
-    
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let brand of brands ">
-       <th class="text-center">{{ brand.id }}</th>
-       <td>{{ brand.name }}</td>
-      
-    </tr>
-    </tbody>
- </table>
+<div
+  *ngIf="dataLoaded == false"
+  class="spinner-border text-warning"
+  role="status"
+>
+  <span class="visually-hidden">Loading...</span>
+</div>
+<div class="row">
+  <div class="col-md-12">
 
+    <button
+    type="button"
+    class=" rounded w-100 btn-lg mx-2"
+    routerLink="/cars"
+    [class] = "getAllCars()"
+    >All Cars</button>
+  
+  
+</div>
+</div>
+
+<div class="accordion accordion-flush" id="accordionFlushBrand">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="flush-headingOneBrand">
+      <button
+        class="accordion-button collapsed"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#flush-collapseOneBrand"
+        aria-expanded="false"
+        aria-controls="flush-collapseOneBrand"
+      >
+        BRANDES
+      </button>
+    </h2>
+    <div
+      id="flush-collapseOneBrand"
+      class="accordion-collapse collapse"
+      aria-labelledby="flush-headingOne"
+      data-bs-parent="#accordionFlushBrand"
+    >
+     
+      <input
+        type="text"
+        class="form-control my-3"
+        id="filterTextBrand"
+        placeholder="Enter brand"
+      />
+        
+      <div>
+        <div
+          class="accordion-body"
+          routerLink="cars/brand/{{ brand.name }}"
+          *ngFor="let brand of brands"
+          (click)="setCurrentBrand(brand)"
+          [class]="getCurrentBrandClass(brand)"
+        >
+          {{ brand.name }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

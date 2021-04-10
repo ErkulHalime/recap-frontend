@@ -1,8 +1,8 @@
 
-<div class="container">
+<div class="container-fluid">
     <app-navi></app-navi>
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-3">
             <div class="row mt-4">
                 <app-brand></app-brand>
             </div>
@@ -11,15 +11,13 @@
             </div>
 
         </div>
-        <div class="col-md-8">
-            <app-car></app-car>
-            <app-customer></app-customer>
-            <app-rental></app-rental>
+        <div class="col-md-9">
+            <router-outlet></router-outlet>
         </div>
         
     </div>
 
   
-    <router-outlet></router-outlet>
+    
 </div>
 

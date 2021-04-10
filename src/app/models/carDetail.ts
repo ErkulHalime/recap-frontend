@@ -1,6 +1,9 @@
-import { Car } from "./car";
-
-export interface CarDetail extends Car {
-    brandName: string
-    colorName: string
+export interface CarDetail {
+    id: number;
+    carName: string;
+    brandName: string;
+    colorName: string;
+    dailyPrice: number;
+    modelYear: number;
+    imagePath: string[]
  }

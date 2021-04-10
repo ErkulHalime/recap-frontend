@@ -1,25 +1,33 @@
+<div class="d-flex flex-wrap">
+  <div
+    class="card m-3"
+    *ngFor="let carDetail of carDetails"
+    style="width: 18rem"
+  >
+    <img
+      *ngIf="carDetail.imagePath != null"
+      src="https://localhost:44308/{{ carDetail.imagePath[0] }}"
+      height="150px"
+      class="img-fluid card-img-top"
+      alt="{{ carDetail.brandName }}"
+    />
 
-<div *ngIf="dataLoaded==false" class="spinner-border text-primary" role="status">
-    <span class="visually-hidden">Loading...</span>
+    <img
+      *ngIf="carDetail.imagePath == null"
+      src="https://localhost:44308/images/NoPicCar.png"
+      height="150px"
+      class="img-fluid card-img-top"
+      alt="{{ carDetail.brandName }}"
+    />
+
+    <div class="card-body text-center">
+      <h5 class="card-title">
+        {{ carDetail.modelYear }} Model {{ carDetail.brandName }}
+      </h5>
+      <p class="card-text">{{ carDetail.dailyPrice }}</p>
+      <a href="/cardetails" class="w-100 btn btn-primary">
+        Car Detail
+      </a>
+    </div>
+  </div>
 </div>
-<table class="table table-striped"  *ngIf="dataLoaded==true">
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>Brand</th>
-            <th>Color</th>
-            <th>ModelYear</th>
-            <th>DailyPrice</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let car of carDetails ">
-            <td class="text-center fw-bold">{{ car.id }}</td>
-               <td>{{ car.brandName }} {{ car.name }}</td>
-               <td>{{ car.colorName }}</td>
-               <td>{{ car.modelYear }}</td>
-               <td>{{ car.dailyPrice | currency: '₺ '}}</td>
-              
-        </tr>
-    </tbody>
-</table>

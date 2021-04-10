@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ListResponseModel } from '../models/listResponseModel';
 import { Rental } from '../models/rental';
-import { RentDetail } from '../models/rentDetail';
 
 @Injectable({
   providedIn: 'root'
@@ -17,8 +16,8 @@ export class RentalService {
       this.getRentals();
    }
 
-   getRentals(): Observable<ListResponseModel<RentDetail>> {
-      return this.httpClient.get<ListResponseModel<RentDetail>>(this.apiUrl);
+   getRentals(): Observable<ListResponseModel<Rental>> {
+      return this.httpClient.get<ListResponseModel<Rental>>(this.apiUrl);
    }
 
 }

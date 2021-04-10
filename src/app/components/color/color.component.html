@@ -1,19 +1,39 @@
-
-
-       <table class="table table-hover table-striped border">
-          <thead>
-          <tr>
-             <th class="text-center">Id</th>
-             <th>Color Name</th>
-             <th></th>
-          </tr>
-          </thead>
-          <tbody>
-          <tr *ngFor="let color of colors">
-             <th class="text-center">{{ color.id }}</th>
-             <td>{{ color.name }}</td>
-           
-          </tr>
-          </tbody>
-       </table>
- 
+<div class="accordion" id="accordionFlushColor">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="flush-headingOneColor">
+      <button
+        class="accordion-button collapsed"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#flush-collapseOneColor"
+        aria-expanded="false"
+        aria-controls="flush-collapseOne"
+        
+      >
+        COLORS
+      </button>
+    </h2>
+    <div
+      id="flush-collapseOneColor"
+      class="accordion-collapse collapse"
+      aria-labelledby="flush-headingOneColor"
+      data-bs-parent="#accordionFlushColor"
+    >
+      <input
+        type="text"
+        class="form-control my-3"
+        id="filterTextColor"
+        placeholder="Enter color"
+      />
+      <div
+        class="accordion-body"
+        routerLink="cars/color/{{ color.name }}"
+        *ngFor="let color of colors"
+        (click)="setCurrentColor(color)"
+        [class]="getCurrentColorClass(color)"
+      >
+        {{ color.name }}
+      </div>
+    </div>
+  </div>
+</div>
